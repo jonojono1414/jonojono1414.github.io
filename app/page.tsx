@@ -62,7 +62,7 @@ export default function Home() {
           🐝 害虫図鑑
         </h1>
         <p className="relative mt-3 text-lg font-medium text-emerald-100">
-          目に優しい害虫図鑑 — {pests.length}種の害虫を収録
+          あまり不快にならない害虫図鑑 — {pests.length}種の害虫を収録
         </p>
 
         {/* Search */}
@@ -164,7 +164,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="mt-12 bg-gray-800 px-4 py-8 text-center text-sm text-gray-400">
-        <p className="font-medium">害虫図鑑 &copy; 2026</p>
+        <p className="font-medium">害虫図鑑（claude画伯） &copy; 2026</p>
         <p className="mt-1 text-gray-500">身近な害虫を知って、正しく対策しよう</p>
       </footer>
     </div>
