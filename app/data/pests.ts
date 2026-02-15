@@ -1,3 +1,11 @@
+export type DangerDetail = {
+  hygiene: number;   // 衛生
+  skin: number;      // 皮膚
+  damage: number;    // 物損
+  mental: number;    // 精神
+  breeding: number;  // 繁殖
+};
+
 export type Pest = {
   id: string;
   name: string;
@@ -7,6 +15,7 @@ export type Pest = {
   size: string;
   habitat: string;
   danger: number; // 1-5
+  dangerDetail: DangerDetail;
   description: string;
   trivia: string[];
   prevention: string[];
@@ -32,6 +41,7 @@ export const pests: Pest[] = [
     size: "25〜35mm",
     habitat: "住宅の台所、浴室、下水管周辺",
     danger: 3,
+    dangerDetail: { hygiene: 3, skin: 1, damage: 3, mental: 5, breeding: 4 },
     description:
       "日本で最もよく見かけるゴキブリ。光沢のある黒褐色の体が特徴で、夜行性。温暖な環境を好み、特に台所や浴室など水回りに多く出現する。雑食性で、食品から紙、接着剤まで何でも食べる。",
     trivia: [
@@ -56,6 +66,7 @@ export const pests: Pest[] = [
     size: "10〜15mm",
     habitat: "飲食店、ビルの厨房、家庭の台所",
     danger: 3,
+    dangerDetail: { hygiene: 3, skin: 1, damage: 3, mental: 5, breeding: 5 },
     description:
       "小型で薄茶色のゴキブリ。飲食店に多く、繁殖力が非常に高い。翅はあるが飛べない。暖かい室内を好み、屋外ではほとんど見られない。集団で生活する習性がある。",
     trivia: [
@@ -80,6 +91,7 @@ export const pests: Pest[] = [
     size: "30〜45mm",
     habitat: "温暖地域のビル、下水道、地下街",
     danger: 3,
+    dangerDetail: { hygiene: 3, skin: 1, damage: 3, mental: 5, breeding: 4 },
     description:
       "日本最大級のゴキブリ。赤褐色で前胸背板に輪紋（わもん）模様がある。主に九州・沖縄など温暖な地域に生息するが、暖房の普及で北上中。飛翔能力が高く、よく飛ぶ。",
     trivia: [
@@ -104,6 +116,7 @@ export const pests: Pest[] = [
     size: "20〜25mm",
     habitat: "森林、落ち葉の下、古い木造家屋",
     danger: 2,
+    dangerDetail: { hygiene: 2, skin: 1, damage: 2, mental: 4, breeding: 2 },
     description:
       "日本固有種のゴキブリ。クロゴキブリに似るがやや小型で、屋外の自然環境を好む。森林の落ち葉の下や朽木の中に生息し、家屋への侵入は比較的少ない。寒さに比較的強い。",
     trivia: [
@@ -129,6 +142,7 @@ export const pests: Pest[] = [
     size: "約4.5mm",
     habitat: "都市部の公園、庭、墓地、竹藪",
     danger: 4,
+    dangerDetail: { hygiene: 4, skin: 4, damage: 1, mental: 3, breeding: 4 },
     description:
       "白黒の縞模様が特徴的なヤブカ。昼間に活発に活動し、公園や庭先で人を刺す。デング熱やジカウイルスを媒介する可能性があり、公衆衛生上重要な種。少量の水たまりでも繁殖する。",
     trivia: [
@@ -153,6 +167,7 @@ export const pests: Pest[] = [
     size: "約5.5mm",
     habitat: "住宅地、下水溝、浄化槽周辺",
     danger: 3,
+    dangerDetail: { hygiene: 3, skin: 3, damage: 1, mental: 3, breeding: 4 },
     description:
       "夜間に室内に侵入して吸血する代表的な蚊。薄茶色の体で、耳元の羽音で不快感を与える。日本脳炎ウイルスの媒介蚊の一つ。幼虫は汚水でも生育できる適応力を持つ。",
     trivia: [
@@ -177,6 +192,7 @@ export const pests: Pest[] = [
     size: "6〜8mm",
     habitat: "住宅地、畜舎、ゴミ処理場",
     danger: 3,
+    dangerDetail: { hygiene: 5, skin: 1, damage: 2, mental: 3, breeding: 5 },
     description:
       "世界で最も一般的なハエ。灰色の体に黒い縦縞が4本あるのが特徴。食品や排泄物に止まり、60種以上の病原体を機械的に媒介する。1秒間に約200回羽ばたく。",
     trivia: [
@@ -201,6 +217,7 @@ export const pests: Pest[] = [
     size: "2〜3mm",
     habitat: "台所、果物売り場、醸造所",
     danger: 1,
+    dangerDetail: { hygiene: 2, skin: 1, damage: 2, mental: 4, breeding: 5 },
     description:
       "赤い目が特徴の小さなハエ。熟した果物や発酵食品に集まる。直接的な健康被害は少ないが、食品への混入が問題になる。遺伝学のモデル生物として科学に大きく貢献。",
     trivia: [
@@ -226,6 +243,7 @@ export const pests: Pest[] = [
     size: "0.2〜0.4mm",
     habitat: "寝具、カーペット、布製ソファ",
     danger: 3,
+    dangerDetail: { hygiene: 3, skin: 2, damage: 1, mental: 4, breeding: 5 },
     description:
       "肉眼では見えない微小なダニ。人間のフケやアカを餌とする。刺すことはないが、死骸やフンがアレルゲンとなり、喘息やアレルギー性鼻炎の主要原因。日本の住宅に最も多いダニ。",
     trivia: [
@@ -250,6 +268,7 @@ export const pests: Pest[] = [
     size: "0.3〜0.8mm",
     habitat: "畳、カーペット、布団",
     danger: 3,
+    dangerDetail: { hygiene: 2, skin: 4, damage: 1, mental: 3, breeding: 4 },
     description:
       "他のダニを捕食する肉食性のダニ。人を刺すことがあり、刺されると強いかゆみと赤い発疹が1〜2週間続く。梅雨〜秋に被害が増加。ヒョウヒダニが増えるとそれを追って増殖する。",
     trivia: [
@@ -274,6 +293,7 @@ export const pests: Pest[] = [
     size: "1〜3mm",
     habitat: "ペットの体表、カーペット、ペット用寝具",
     danger: 3,
+    dangerDetail: { hygiene: 3, skin: 4, damage: 2, mental: 3, breeding: 5 },
     description:
       "名前はネコノミだが、犬や人間も刺す最も一般的なノミ。強力な後脚で体長の150倍もジャンプできる。刺されると強烈なかゆみがあり、アレルギー性皮膚炎を引き起こすことも。",
     trivia: [
@@ -298,6 +318,7 @@ export const pests: Pest[] = [
     size: "2〜3mm",
     habitat: "人間の頭髪",
     danger: 2,
+    dangerDetail: { hygiene: 3, skin: 4, damage: 1, mental: 3, breeding: 4 },
     description:
       "人間の頭髪に寄生し、頭皮から吸血するシラミ。清潔にしていても感染する。子供同士の頭の接触や、帽子・タオルの共用で感染が広がる。保育園や小学校で集団発生することがある。",
     trivia: [
@@ -323,6 +344,7 @@ export const pests: Pest[] = [
     size: "27〜45mm（女王蜂は55mm）",
     habitat: "森林、公園、住宅の軒下・屋根裏",
     danger: 5,
+    dangerDetail: { hygiene: 1, skin: 5, damage: 1, mental: 5, breeding: 3 },
     description:
       "日本最大のハチで、最も危険な害虫の一つ。強力な毒針で刺され、アナフィラキシーショックで年間約20人が死亡。攻撃性が高く、巣に近づくだけで集団攻撃を受けることがある。",
     trivia: [
@@ -347,6 +369,7 @@ export const pests: Pest[] = [
     size: "12〜26mm",
     habitat: "住宅の軒下、ベランダ、庭木",
     danger: 4,
+    dangerDetail: { hygiene: 1, skin: 4, damage: 1, mental: 4, breeding: 3 },
     description:
       "細長い体と長い脚が特徴のハチ。スズメバチほど攻撃的ではないが、巣を刺激すると刺してくる。毒はスズメバチより弱いがアナフィラキシーの危険はある。芋虫を捕食し益虫の側面も。",
     trivia: [
@@ -371,6 +394,7 @@ export const pests: Pest[] = [
     size: "5〜8mm（成虫の開翅長）",
     habitat: "クローゼット、タンス、衣類収納",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 4, mental: 2, breeding: 3 },
     description:
       "幼虫が衣類を食害する小さな蛾。ウール、シルク、カシミヤなどの動物性繊維を好んで食べる。成虫は食害しない。幼虫は筒状の巣（ミノ）を作り、その中に隠れながら繊維を食べる。",
     trivia: [
@@ -395,6 +419,7 @@ export const pests: Pest[] = [
     size: "8〜15cm",
     habitat: "石の下、落ち葉、湿った場所、家屋周辺",
     danger: 4,
+    dangerDetail: { hygiene: 1, skin: 5, damage: 1, mental: 4, breeding: 2 },
     description:
       "日本最大のムカデ。赤褐色の頭と黄色い脚、暗緑〜黒褐色の胴体が特徴。強力な顎肢（毒爪）で咬みつき、激しい痛みと腫れを引き起こす。夜行性でゴキブリやクモを捕食する。",
     trivia: [
@@ -419,6 +444,7 @@ export const pests: Pest[] = [
     size: "5〜8mm",
     habitat: "ベッドフレーム、マットレス、家具の隙間",
     danger: 3,
+    dangerDetail: { hygiene: 2, skin: 5, damage: 2, mental: 4, breeding: 4 },
     description:
       "近年急増している吸血性の害虫。別名「南京虫」。扁平な楕円形の体で、夜間に人の血を吸う。刺されると強い痒みが1〜2週間続く。旅行者のスーツケースに紛れて拡散する。",
     trivia: [
@@ -443,6 +469,7 @@ export const pests: Pest[] = [
     size: "吸血前3〜4mm、吸血後10〜20mm",
     habitat: "山林、草むら、公園の茂み",
     danger: 5,
+    dangerDetail: { hygiene: 5, skin: 5, damage: 1, mental: 4, breeding: 2 },
     description:
       "野外に生息する大型のダニ。皮膚に口器を突き刺して長時間（数日〜2週間）吸血する。SFTS（重症熱性血小板減少症候群）や日本紅斑熱など致死的な感染症を媒介する。",
     trivia: [
@@ -467,6 +494,7 @@ export const pests: Pest[] = [
     size: "12〜17mm",
     habitat: "農地、果樹園、住宅（越冬時）",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 2, mental: 3, breeding: 3 },
     description:
       "五角形の盾型の体が特徴。危険を感じると悪臭を放つ防御機構を持つ。秋になると越冬のため住宅に大量侵入する。農作物への食害も深刻で、果実や野菜に被害を与える。",
     trivia: [
@@ -491,6 +519,7 @@ export const pests: Pest[] = [
     size: "4〜7mm（働きアリ）",
     habitat: "木造建築物の床下、土壌中",
     danger: 2,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 5, mental: 3, breeding: 4 },
     description:
       "木材を食害し建物に甚大な被害を与える社会性昆虫。名前に「アリ」とつくがゴキブリに近い仲間。日本ではヤマトシロアリとイエシロアリが主な加害種。被害は年間約1000億円以上。",
     trivia: [
@@ -515,6 +544,7 @@ export const pests: Pest[] = [
     size: "25〜35mm（開翅長）",
     habitat: "ツバキ・サザンカなどの庭木",
     danger: 4,
+    dangerDetail: { hygiene: 1, skin: 5, damage: 2, mental: 4, breeding: 4 },
     description:
       "幼虫（毛虫）の毒針毛による皮膚炎が問題となる蛾。幼虫は集団で葉を食害し、体表の微細な毒針毛に触れると激しい痒みと発疹が出る。毒針毛は脱皮殻や成虫にも残る。",
     trivia: [
@@ -540,6 +570,7 @@ export const pests: Pest[] = [
     size: "2〜5mm",
     habitat: "浴室、トイレ、排水口周辺",
     danger: 1,
+    dangerDetail: { hygiene: 2, skin: 1, damage: 1, mental: 3, breeding: 4 },
     description:
       "蝶のようなハート形の翅を持つ小さなハエ。体表に細かい毛が密生し、蛾のような外見をしている。排水口のヘドロや有機物に産卵し、浴室やトイレに大量発生することがある。",
     trivia: [
@@ -564,6 +595,7 @@ export const pests: Pest[] = [
     size: "2〜5mm",
     habitat: "渓流沿い、山間部、キャンプ場",
     danger: 3,
+    dangerDetail: { hygiene: 2, skin: 4, damage: 1, mental: 3, breeding: 3 },
     description:
       "小さな黒い体のハエの仲間。渓流などきれいな水辺に生息し、皮膚を噛み切って吸血する。蚊と違い痛みを感じにくいが、後から強い腫れと痒みが出る。アウトドアで被害が多い。",
     trivia: [
@@ -589,6 +621,7 @@ export const pests: Pest[] = [
     size: "メス約10mm（体長）",
     habitat: "公園のベンチ裏、側溝、自動販売機の下",
     danger: 5,
+    dangerDetail: { hygiene: 1, skin: 5, damage: 1, mental: 4, breeding: 2 },
     description:
       "オーストラリア原産の毒グモ。メスの背面に赤い帯模様があるのが名前の由来。1995年に大阪で初めて発見され、現在は全国に分布が拡大。咬まれると激痛、発汗、吐き気が生じる。",
     trivia: [
@@ -613,6 +646,7 @@ export const pests: Pest[] = [
     size: "体長20〜30mm（脚を含めると100mm超）",
     habitat: "住宅内、倉庫、物置",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 1, mental: 4, breeding: 2 },
     description:
       "日本最大級の家グモ。脚を広げると手のひらサイズになり見た目のインパクトが強いが、人には無害。ゴキブリを捕食する益虫として知られ、「軍曹」の愛称で親しまれることも。",
     trivia: [
@@ -638,6 +672,7 @@ export const pests: Pest[] = [
     size: "2〜6mm",
     habitat: "港湾地域、公園、農地（主に輸入コンテナ経由）",
     danger: 5,
+    dangerDetail: { hygiene: 2, skin: 5, damage: 1, mental: 4, breeding: 5 },
     description:
       "南米原産の強毒アリ。特定外来生物に指定され、日本では2017年に初確認。腹部の毒針で刺されるとアナフィラキシーショックを起こす可能性がある。非常に攻撃的で集団で襲ってくる。",
     trivia: [
@@ -662,6 +697,7 @@ export const pests: Pest[] = [
     size: "2.5〜3.5mm",
     habitat: "米びつ、穀物貯蔵庫、食品棚",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 4, mental: 3, breeding: 4 },
     description:
       "象のような長い口吻（こうふん）が特徴の小さな甲虫。米や麦などの穀物に穴を開けて卵を産みつけ、幼虫が内部から食い荒らす。お米に虫がわく原因の代表格。",
     trivia: [
@@ -686,6 +722,7 @@ export const pests: Pest[] = [
     size: "2〜3mm",
     habitat: "食品棚、乾物保管庫、古い書籍",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 4, mental: 3, breeding: 4 },
     description:
       "赤褐色の小さな丸い甲虫。乾燥食品（小麦粉、パスタ、香辛料、ペットフード等）を食害する。畳や本、タバコも食べる雑食性で、「死番虫」という不気味な和名を持つ。",
     trivia: [
@@ -711,6 +748,7 @@ export const pests: Pest[] = [
     size: "20〜30mm（脚を含めると70mm程）",
     habitat: "家屋の壁、浴室、地下室",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 1, mental: 4, breeding: 2 },
     description:
       "非常に長い脚を持つ多足類。15対の脚があり、素早く走る姿が恐怖感を与える。しかし実際は無害で、ゴキブリやダニなどを捕食する益虫。見た目に反して人を噛むことはほぼない。",
     trivia: [
@@ -735,6 +773,7 @@ export const pests: Pest[] = [
     size: "20〜35mm",
     habitat: "落ち葉の下、石の下、湿った土壌",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 1, mental: 3, breeding: 4 },
     description:
       "1つの体節に2対の脚を持つ多足類。ムカデと似ているが動きは遅く、人を噛むことはない。落ち葉を分解する分解者として生態系に貢献。大雨の後に大量発生し家屋に侵入することがある。",
     trivia: [
@@ -759,6 +798,7 @@ export const pests: Pest[] = [
     size: "10〜15mm",
     habitat: "庭、植木鉢の下、石の下、落ち葉",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 2, mental: 2, breeding: 3 },
     description:
       "触ると丸くなる習性で人気のある等脚類。実は昆虫ではなくエビやカニの仲間（甲殻類）。庭の枯葉や腐った植物を食べる分解者だが、若い苗や花を食害することもある。",
     trivia: [
@@ -785,6 +825,7 @@ export const pests: Pest[] = [
     size: "5〜7mm",
     habitat: "牧場、畜舎、堆肥置き場周辺",
     danger: 3,
+    dangerDetail: { hygiene: 3, skin: 4, damage: 1, mental: 3, breeding: 4 },
     description:
       "イエバエに似た外見だが、鋭い口吻で人や家畜の血を吸う。牧場や畜舎周辺に多く、刺されると強い痛みがある。家畜の生産性を低下させ、畜産業に大きな経済的被害を与える。",
     trivia: [
@@ -809,6 +850,7 @@ export const pests: Pest[] = [
     size: "1〜2mm",
     habitat: "海岸、河川敷、湿地帯",
     danger: 3,
+    dangerDetail: { hygiene: 2, skin: 4, damage: 1, mental: 3, breeding: 5 },
     description:
       "極めて小さな吸血性のハエの仲間。網戸の目をすり抜けるほど小さく、刺されると強い痒みと赤い腫れが数日続く。海辺やキャンプ場で大量に発生し、集団で襲ってくる。",
     trivia: [
@@ -833,6 +875,7 @@ export const pests: Pest[] = [
     size: "15〜38mm",
     habitat: "草地、水田、庭、街灯周辺",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 2, mental: 2, breeding: 2 },
     description:
       "巨大な蚊のような外見で恐れられるが、人を刺すことはない。細長い脚が特徴で、光に集まる習性がある。幼虫は土中で植物の根を食害し、芝生や農作物に被害を与えることがある。",
     trivia: [
@@ -857,6 +900,7 @@ export const pests: Pest[] = [
     size: "15〜25mm",
     habitat: "山林、渓流沿い、牧場、キャンプ場",
     danger: 4,
+    dangerDetail: { hygiene: 2, skin: 5, damage: 1, mental: 3, breeding: 2 },
     description:
       "大型の吸血性のハエの仲間。メスが産卵のために哺乳類の血を吸う。刃物のような口器で皮膚を切り裂いて吸血するため、蚊よりもはるかに痛い。夏の野外活動で被害が多い。",
     trivia: [
@@ -881,6 +925,7 @@ export const pests: Pest[] = [
     size: "3〜10mm",
     habitat: "河川、湖沼、水田、街灯周辺",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 1, mental: 4, breeding: 4 },
     description:
       "蚊に似た外見だが吸血はしない。大量発生して蚊柱を形成し、洗濯物や車への付着、アレルギーの原因となる。幼虫（アカムシ）は水質浄化に貢献し、釣り餌としても利用される。",
     trivia: [
@@ -905,6 +950,7 @@ export const pests: Pest[] = [
     size: "1〜4mm",
     habitat: "観葉植物の土、家庭菜園、キノコ栽培施設",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 2, mental: 3, breeding: 4 },
     description:
       "観葉植物の土から大量発生する小さなハエ。腐植質や菌類を餌とする。人を刺すことはないが、室内で大量に飛び回り不快害虫となる。有機質の多い湿った土壌で繁殖する。",
     trivia: [
@@ -930,6 +976,7 @@ export const pests: Pest[] = [
     size: "0.6〜1mm",
     habitat: "ネズミの巣、天井裏、壁の隙間",
     danger: 3,
+    dangerDetail: { hygiene: 3, skin: 4, damage: 1, mental: 4, breeding: 4 },
     description:
       "本来はネズミに寄生する吸血性のダニ。宿主のネズミが死んだり駆除されたりすると、代わりに人間を吸血する。刺されると強い痒みが1週間以上続き、赤い発疹ができる。",
     trivia: [
@@ -955,6 +1002,7 @@ export const pests: Pest[] = [
     size: "メス17〜30mm、オス6〜10mm",
     habitat: "庭木、公園、森林の樹間",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 1, mental: 3, breeding: 2 },
     description:
       "黄色と青黒い縞模様が特徴的な大型のクモ。秋に大きな網を張り、メスはオスの数倍の大きさがある。毒は弱く人への害はほぼない。害虫を捕食する益虫として生態系に貢献する。",
     trivia: [
@@ -980,6 +1028,7 @@ export const pests: Pest[] = [
     size: "7〜13mm",
     habitat: "庭、公園、森林、住宅の基礎周辺",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 2, damage: 3, mental: 2, breeding: 3 },
     description:
       "日本最大級のアリ。光沢のある黒い体が特徴で、朽木の中に巣を作る。住宅の木材に営巣して建物を傷めることがある。攻撃性は低いが、強力な顎で噛みつくと痛い。",
     trivia: [
@@ -1004,6 +1053,7 @@ export const pests: Pest[] = [
     size: "2〜3mm",
     habitat: "クローゼット、タンス、博物館",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 2, damage: 4, mental: 3, breeding: 3 },
     description:
       "丸い体に茶色と白のまだら模様がある小さな甲虫。幼虫が衣類、毛皮、動物標本などの動物性繊維を食害する。博物館の害虫としても知られ、成虫は花粉を食べる。",
     trivia: [
@@ -1028,6 +1078,7 @@ export const pests: Pest[] = [
     size: "6〜7mm",
     habitat: "水田、畑、河川敷、街灯周辺",
     danger: 4,
+    dangerDetail: { hygiene: 1, skin: 5, damage: 1, mental: 4, breeding: 3 },
     description:
       "別名「やけど虫」。体液にペデリンという強い毒性物質を含み、皮膚に付くと線状の水疱とただれが生じる。潰すと症状が広がるため、見つけても絶対に手で払ってはいけない。",
     trivia: [
@@ -1052,6 +1103,7 @@ export const pests: Pest[] = [
     size: "17〜24mm",
     habitat: "庭、公園、果樹園、街灯周辺",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 3, mental: 2, breeding: 3 },
     description:
       "金属光沢のある緑色の美しい甲虫。成虫は葉を食害し、幼虫（ネキリムシ）は土中で植物の根を食害する。芝生や農作物に深刻な被害を与えることがある。夜間に光に集まる。",
     trivia: [
@@ -1077,6 +1129,7 @@ export const pests: Pest[] = [
     size: "3〜5mm",
     habitat: "水田、稲作地帯",
     danger: 2,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 3, mental: 2, breeding: 4 },
     description:
       "稲の害虫として古くから恐れられるセミに近い仲間。稲の茎から汁を吸い、「坪枯れ」と呼ばれる被害を引き起こす。中国南部から気流に乗って毎年日本に飛来する長距離移動性害虫。",
     trivia: [
@@ -1101,6 +1154,7 @@ export const pests: Pest[] = [
     size: "15〜25mm",
     habitat: "森林、庭木、街灯周辺",
     danger: 3,
+    dangerDetail: { hygiene: 1, skin: 4, damage: 1, mental: 3, breeding: 2 },
     description:
       "鋭い口吻で他の昆虫を捕食するカメムシの仲間。益虫だが、不用意に触ると口吻で刺され、蜂に刺されたような激しい痛みがある。暗褐色で、前脚がカマキリのように発達している。",
     trivia: [
@@ -1125,6 +1179,7 @@ export const pests: Pest[] = [
     size: "15〜25mm",
     habitat: "石の下、落ち葉、湿った地面、花壇",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 1, mental: 2, breeding: 3 },
     description:
       "尾端に大きなハサミ状の尾鉗（びかん）を持つ昆虫。見た目は怖いがハサミで人を挟む力は弱く、害はほとんどない。雑食性で腐った植物や小さな虫を食べる。母虫が卵を守る珍しい習性がある。",
     trivia: [
@@ -1149,6 +1204,7 @@ export const pests: Pest[] = [
     size: "10〜15mm",
     habitat: "庭、植木鉢の下、石の下、湿った場所",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 1, mental: 2, breeding: 3 },
     description:
       "ダンゴムシに似ているが、丸くなれないのが特徴。甲殻類の一種で、湿った場所を好む。落ち葉や腐った植物を食べる分解者として生態系に貢献。大量発生すると不快害虫となる。",
     trivia: [
@@ -1173,6 +1229,7 @@ export const pests: Pest[] = [
     size: "7〜8mm（開翅長15mm）",
     habitat: "食品棚、穀物貯蔵庫、ペットフード保管場所",
     danger: 1,
+    dangerDetail: { hygiene: 1, skin: 1, damage: 4, mental: 3, breeding: 4 },
     description:
       "翅の半分が赤褐色、半分が灰白色の二色模様が特徴の小さな蛾。幼虫は米、小麦粉、チョコレート、ナッツなど幅広い乾燥食品を食害する。糸を吐いて食品を汚染するのが厄介。",
     trivia: [
@@ -1197,6 +1254,7 @@ export const pests: Pest[] = [
     size: "オス40mm、メス60〜80mm（開翅長）",
     habitat: "森林、街路樹、住宅地の樹木",
     danger: 2,
+    dangerDetail: { hygiene: 1, skin: 2, damage: 3, mental: 4, breeding: 4 },
     description:
       "大量発生すると街路樹や森林を丸裸にする大型の蛾。約10年周期で大発生する。幼虫（毛虫）は様々な樹木の葉を食害し、成虫は大量に街灯に集まり壁一面を覆い尽くすことも。",
     trivia: [
@@ -1221,6 +1279,7 @@ export const pests: Pest[] = [
     size: "25〜30mm（開翅長）",
     habitat: "庭木、果樹、街路樹（カキ・サクラ・ケヤキなど）",
     danger: 4,
+    dangerDetail: { hygiene: 1, skin: 5, damage: 2, mental: 4, breeding: 3 },
     description:
       "幼虫（毛虫）が強烈な毒棘を持つ蛾。触れると電気が走るような激しい痛みがあり、「デンキムシ」の別名を持つ。カキやサクラなどの庭木に発生し、庭仕事中に被害に遭うことが多い。",
     trivia: [
@@ -1245,6 +1304,7 @@ export const pests: Pest[] = [
     size: "20〜30mm",
     habitat: "都市部の高い樹木、建物の高所",
     danger: 5,
+    dangerDetail: { hygiene: 1, skin: 5, damage: 1, mental: 5, breeding: 4 },
     description:
       "東南アジア原産の外来スズメバチ。2012年に対馬で初確認され、分布を拡大中。高い場所に巨大な巣を作り、ミツバチを集団で襲って捕食する。養蜂業への被害が深刻な問題となっている。",
     trivia: [

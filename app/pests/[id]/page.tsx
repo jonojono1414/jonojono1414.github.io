@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { pests } from "../../data/pests";
 import PestSvg from "../../components/PestSvg";
+import RadarChart from "../../components/RadarChart";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -71,8 +72,8 @@ export default async function PestDetail({ params }: Props) {
                 <InfoRow label="サイズ" value={pest.size} />
                 <InfoRow label="生息場所" value={pest.habitat} />
                 <div className="flex items-start gap-3">
-                  <span className="w-20 shrink-0 rounded-lg bg-gray-100 px-2 py-1 text-center text-xs font-bold text-gray-500">
-                    危険度
+                  <span className="w-24 shrink-0 rounded-lg bg-gray-100 px-2 py-1 text-center text-xs font-bold text-gray-500">
+                    総合危険度
                   </span>
                   <span className={`text-lg font-bold ${dangerColor(pest.danger)}`}>
                     {dangerStars(pest.danger)}
@@ -82,6 +83,14 @@ export default async function PestDetail({ params }: Props) {
             </div>
           </div>
         </div>
+
+        {/* Danger Radar Chart */}
+        <section className="mt-8 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 p-6 shadow-md md:p-8">
+          <h3 className="mb-4 text-xl font-extrabold text-gray-800">📊 危険度詳細</h3>
+          <div className="flex justify-center">
+            <RadarChart data={pest.dangerDetail} />
+          </div>
+        </section>
 
         {/* Description */}
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-md md:p-8">
