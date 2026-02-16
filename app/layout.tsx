@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "ゴキブリ、蚊、ダニ、ハチなど身近な害虫50種以上をイラスト付きで徹底解説。特徴・豆知識・対策法をわかりやすく紹介する害虫図鑑サイト。",
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.ico",
   },
 };
 
