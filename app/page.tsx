@@ -5,6 +5,7 @@ import { pests, categories } from "./data/pests";
 import PestCard from "./components/PestCard";
 
 export default function Home() {
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const gridRef = useRef<HTMLDivElement>(null);
@@ -62,6 +63,14 @@ export default function Home() {
         <p className="relative mt-3 text-lg font-medium text-emerald-100">
           あまり不快にならない憎めない害虫図鑑
         </p>
+
+        {/* About trigger */}
+        <button
+          onClick={() => setAboutOpen(true)}
+          className="relative mt-4 inline-flex items-center gap-1.5 text-sm text-white/70 transition-all hover:text-white"
+        >
+          <span className="border-b border-dashed border-white/40">害虫図鑑について</span>
+        </button>
 
         {/* Search */}
         <div className="relative mx-auto mt-6 max-w-md">
@@ -163,6 +172,58 @@ export default function Home() {
         <p className="font-medium">害虫図鑑（claude画伯） &copy; 2026</p>
         <p className="mt-1 text-gray-500">身近な害虫を知って、正しく対策しよう</p>
       </footer>
+
+      {/* About overlay */}
+      <div
+        className={`fixed inset-0 z-50 flex items-center justify-center px-6 transition-all duration-500 ${
+          aboutOpen
+            ? "visible opacity-100"
+            : "invisible opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setAboutOpen(false)}
+      >
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+
+        <div
+          className={`relative max-w-lg rounded-2xl bg-gray-900/95 px-8 py-10 shadow-2xl transition-all duration-500 sm:px-10 ${
+            aboutOpen
+              ? "scale-100 opacity-100"
+              : "scale-95 opacity-0"
+          }`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            onClick={() => setAboutOpen(false)}
+            className="absolute right-4 top-4 text-white/30 transition-colors hover:text-white/70"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-white/40">
+            害虫図鑑について
+          </p>
+
+          <div className="mt-6 space-y-5 text-sm leading-loose text-white/70">
+            <p>
+              気持ち悪い...でも、なぜか目が離せない。
+              <br />
+              そんな害虫たちの不思議な魅力。
+            </p>
+            <p>
+              身近な害虫をもっと知ってもらい、
+              <br />
+              いざ被害に遭ったときにサッと対処できるように。
+            </p>
+            <p>
+              ちょっとためになるおもしろ豆知識と一緒に、
+              <br />
+              ゆるく楽しんでください。
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
