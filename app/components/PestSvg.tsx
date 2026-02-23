@@ -2565,6 +2565,99 @@ function TsumaakasuzumebachiSvg() {
 }
 
 /* ==============================
+   シミ（紙魚）
+   ============================== */
+
+function ShimiSvg() {
+  return (
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="shimi-body" cx="50%" cy="40%" r="50%">
+          <stop offset="0%" stopColor="#C0C0C8" />
+          <stop offset="100%" stopColor="#8A8A96" />
+        </radialGradient>
+        <radialGradient id="shimi-sheen" cx="35%" cy="30%" r="45%">
+          <stop offset="0%" stopColor="white" stopOpacity="0.5" />
+          <stop offset="100%" stopColor="white" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="shimi-tail-g" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#9A9AA6" />
+          <stop offset="100%" stopColor="#B8B8C4" stopOpacity="0.4" />
+        </linearGradient>
+      </defs>
+
+      {/* Antennae (long, curved) */}
+      <g className="pest-antenna-l">
+        <path d="M82 56 Q60 30 40 14" stroke="#8A8A96" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <circle cx="40" cy="14" r="1.5" fill="#8A8A96" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M118 56 Q140 30 160 14" stroke="#8A8A96" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <circle cx="160" cy="14" r="1.5" fill="#8A8A96" />
+      </g>
+
+      {/* Legs – tiny, 3 pairs */}
+      <g className="pest-leg-l">
+        <path d="M72 78 Q58 72 48 66" stroke="#9A9AA6" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M68 95 Q54 90 44 85" stroke="#9A9AA6" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M72 112 Q58 116 46 120" stroke="#9A9AA6" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M128 78 Q142 72 152 66" stroke="#9A9AA6" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M132 95 Q146 90 156 85" stroke="#9A9AA6" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M128 112 Q142 116 154 120" stroke="#9A9AA6" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+
+      {/* Body – teardrop / carrot shape, wide head tapering to tail */}
+      <g className="pest-undulate">
+        {/* Main body */}
+        <path
+          d="M100 50 Q130 60 134 80 Q136 100 130 120 Q124 140 112 155 Q106 164 100 170 Q94 164 88 155 Q76 140 70 120 Q64 100 66 80 Q70 60 100 50Z"
+          fill="url(#shimi-body)"
+        />
+        {/* Silver sheen overlay */}
+        <path
+          d="M100 50 Q130 60 134 80 Q136 100 130 120 Q124 140 112 155 Q106 164 100 170 Q94 164 88 155 Q76 140 70 120 Q64 100 66 80 Q70 60 100 50Z"
+          fill="url(#shimi-sheen)"
+        />
+        {/* Scale pattern – horizontal lines */}
+        <path d="M74 75 Q100 78 126 75" stroke="#A8A8B4" strokeWidth="0.6" fill="none" opacity="0.5" />
+        <path d="M70 88 Q100 92 130 88" stroke="#A8A8B4" strokeWidth="0.6" fill="none" opacity="0.5" />
+        <path d="M68 101 Q100 106 132 101" stroke="#A8A8B4" strokeWidth="0.6" fill="none" opacity="0.5" />
+        <path d="M72 114 Q100 119 128 114" stroke="#A8A8B4" strokeWidth="0.6" fill="none" opacity="0.5" />
+        <path d="M78 127 Q100 132 122 127" stroke="#A8A8B4" strokeWidth="0.6" fill="none" opacity="0.5" />
+        <path d="M84 140 Q100 144 116 140" stroke="#A8A8B4" strokeWidth="0.6" fill="none" opacity="0.5" />
+        {/* Center line */}
+        <line x1="100" y1="55" x2="100" y2="168" stroke="#7A7A88" strokeWidth="0.5" opacity="0.3" />
+      </g>
+
+      {/* Head / eyes */}
+      <circle cx="90" cy="58" r="3.5" fill="#2C2C34" />
+      <circle cx="110" cy="58" r="3.5" fill="#2C2C34" />
+      <circle cx="91" cy="57" r="1.2" fill="white" opacity="0.7" />
+      <circle cx="111" cy="57" r="1.2" fill="white" opacity="0.7" />
+
+      {/* Three tail filaments (cerci + terminal filament) */}
+      <g className="pest-antenna-l">
+        <path d="M94 170 Q80 186 68 196" stroke="url(#shimi-tail-g)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-body">
+        <path d="M100 172 Q100 188 100 198" stroke="url(#shimi-tail-g)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M106 170 Q120 186 132 196" stroke="url(#shimi-tail-g)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+
+      {/* Tiny silver sparkle particles */}
+      <circle cx="60" cy="90" r="1" fill="white" opacity="0.6" />
+      <circle cx="142" cy="75" r="0.8" fill="white" opacity="0.5" />
+      <circle cx="55" cy="115" r="0.7" fill="white" opacity="0.4" />
+      <circle cx="148" cy="108" r="0.9" fill="white" opacity="0.5" />
+    </svg>
+  );
+}
+
+/* ==============================
    SVG Map & Export
    ============================== */
 
@@ -2620,6 +2713,7 @@ const svgMap: Record<string, React.ReactNode> = {
   maimaiga: <MaimaigaSvg />,
   iraga: <IragaSvg />,
   tsumaakasuzumebachi: <TsumaakasuzumebachiSvg />,
+  shimi: <ShimiSvg />,
 };
 
 export default function PestSvg({ id, size = 200 }: Props) {
