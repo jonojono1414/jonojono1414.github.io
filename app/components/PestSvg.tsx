@@ -2667,20 +2667,34 @@ function MukadeSvg() {
         </linearGradient>
       </defs>
       {/* Body segments */}
+      <g className="pest-body">
       {[30,45,60,75,90,105,120,135,150,165].map((y,i) => (
         <g key={i}>
           <ellipse cx="100" cy={y} rx="18" ry="8" fill="url(#mukade-body)" stroke="#4A1200" strokeWidth="0.5" />
-          <line x1="82" y1={y} x2={60-i*2} y2={y-8} stroke="#7B2000" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="118" y1={y} x2={140+i*2} y2={y-8} stroke="#7B2000" strokeWidth="1.5" strokeLinecap="round" />
         </g>
       ))}
+      </g>
+      <g className="pest-leg-l">
+      {[30,45,60,75,90,105,120,135,150,165].map((y,i) => (
+          <line key={i} x1="82" y1={y} x2={60-i*2} y2={y-8} stroke="#7B2000" strokeWidth="1.5" strokeLinecap="round" />
+      ))}
+      </g>
+      <g className="pest-leg-r">
+      {[30,45,60,75,90,105,120,135,150,165].map((y,i) => (
+          <line key={i} x1="118" y1={y} x2={140+i*2} y2={y-8} stroke="#7B2000" strokeWidth="1.5" strokeLinecap="round" />
+      ))}
+      </g>
       {/* Head */}
       <ellipse cx="100" cy="22" rx="14" ry="10" fill="#6B1800" />
       <circle cx="94" cy="20" r="2.5" fill="#FF6633" />
       <circle cx="106" cy="20" r="2.5" fill="#FF6633" />
       {/* Antennae */}
-      <path d="M90 14 Q78 4 70 2" stroke="#6B1800" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M110 14 Q122 4 130 2" stroke="#6B1800" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-antenna-l">
+        <path d="M90 14 Q78 4 70 2" stroke="#6B1800" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M110 14 Q122 4 130 2" stroke="#6B1800" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Forcipules (毒肢) */}
       <path d="M92 28 Q82 34 78 30" stroke="#FF4400" strokeWidth="2" fill="none" strokeLinecap="round" />
       <path d="M108 28 Q118 34 122 30" stroke="#FF4400" strokeWidth="2" fill="none" strokeLinecap="round" />
@@ -2856,10 +2870,16 @@ function KiirosuzuSvg() {
       <circle cx="93" cy="70" r="3.5" fill="#222" />
       <circle cx="107" cy="70" r="3.5" fill="#222" />
       {/* Antennae */}
-      <path d="M92 62 Q82 45 78 38" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M108 62 Q118 45 122 38" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-antenna-l">
+        <path d="M92 62 Q82 45 78 38" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M108 62 Q118 45 122 38" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Stinger */}
-      <path d="M100 158 L100 168" stroke="#222" strokeWidth="2" strokeLinecap="round" />
+      <g className="pest-body">
+        <path d="M100 158 L100 168" stroke="#222" strokeWidth="2" strokeLinecap="round" />
+      </g>
     </svg>
   );
 }
@@ -2877,17 +2897,22 @@ function MitsubachiSvg() {
       <ellipse cx="68" cy="95" rx="26" ry="12" fill="#D4D4FF44" stroke="#AAA" strokeWidth="0.5" transform="rotate(-10 68 95)" />
       <ellipse cx="132" cy="95" rx="26" ry="12" fill="#D4D4FF44" stroke="#AAA" strokeWidth="0.5" transform="rotate(10 132 95)" />
       {/* Legs */}
-      <path d="M82 120 Q65 135 55 148" stroke="#8B6914" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <path d="M118 120 Q135 135 145 148" stroke="#8B6914" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <path d="M85 108 Q65 108 50 105" stroke="#8B6914" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <path d="M115 108 Q135 108 150 105" stroke="#8B6914" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <g className="pest-leg-l">
+        <path d="M82 120 Q65 135 55 148" stroke="#8B6914" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <path d="M85 108 Q65 108 50 105" stroke="#8B6914" strokeWidth="2" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M118 120 Q135 135 145 148" stroke="#8B6914" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <path d="M115 108 Q135 108 150 105" stroke="#8B6914" strokeWidth="2" fill="none" strokeLinecap="round" />
+      </g>
       {/* Fuzzy abdomen */}
-      <ellipse cx="100" cy="125" rx="24" ry="28" fill="url(#mitsu-body)" />
-      <path d="M78 115 Q100 111 122 115" stroke="#6B4400" strokeWidth="2.5" fill="none" />
-      <path d="M76 125 Q100 121 124 125" stroke="#6B4400" strokeWidth="2.5" fill="none" />
-      <path d="M78 135 Q100 131 122 135" stroke="#6B4400" strokeWidth="2.5" fill="none" />
-      {/* Fur texture */}
-      <ellipse cx="100" cy="125" rx="24" ry="28" fill="none" stroke="#D4A030" strokeWidth="0.5" strokeDasharray="2 2" />
+      <g className="pest-body">
+        <ellipse cx="100" cy="125" rx="24" ry="28" fill="url(#mitsu-body)" />
+        <path d="M78 115 Q100 111 122 115" stroke="#6B4400" strokeWidth="2.5" fill="none" />
+        <path d="M76 125 Q100 121 124 125" stroke="#6B4400" strokeWidth="2.5" fill="none" />
+        <path d="M78 135 Q100 131 122 135" stroke="#6B4400" strokeWidth="2.5" fill="none" />
+        <ellipse cx="100" cy="125" rx="24" ry="28" fill="none" stroke="#D4A030" strokeWidth="0.5" strokeDasharray="2 2" />
+      </g>
       {/* Thorax */}
       <ellipse cx="100" cy="90" rx="16" ry="14" fill="#8B6914" />
       {/* Head */}
@@ -2895,8 +2920,12 @@ function MitsubachiSvg() {
       <circle cx="94" cy="66" r="3" fill="#222" />
       <circle cx="106" cy="66" r="3" fill="#222" />
       {/* Antennae */}
-      <path d="M94 58 Q86 44 84 38" stroke="#6B4400" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M106 58 Q114 44 116 38" stroke="#6B4400" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-antenna-l">
+        <path d="M94 58 Q86 44 84 38" stroke="#6B4400" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M106 58 Q114 44 116 38" stroke="#6B4400" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
     </svg>
   );
 }
@@ -2917,6 +2946,7 @@ function NamekujiSvg() {
       {/* Slime trail */}
       <path d="M30 160 Q60 155 100 148 Q140 140 170 145" stroke="#AACC88" strokeWidth="8" fill="none" opacity="0.2" strokeLinecap="round" />
       {/* Body */}
+      <g className="pest-body">
       <path d="M55 120 Q55 90 75 82 Q100 74 130 80 Q155 86 155 110 Q155 138 130 142 Q100 148 70 144 Q55 140 55 120Z" fill="url(#nameku-body)" />
       {/* Mantle (外套膜) */}
       <ellipse cx="90" cy="100" rx="22" ry="16" fill="#7A6445" opacity="0.6" />
@@ -2926,14 +2956,17 @@ function NamekujiSvg() {
       <path d="M80 125 Q100 122 120 125" stroke="#6B5A40" strokeWidth="0.8" fill="none" opacity="0.4" />
       {/* Head area */}
       <ellipse cx="148" cy="105" rx="12" ry="14" fill="#7A6445" />
-      {/* Eye stalks */}
-      <path d="M145 98 Q148 80 150 72" stroke="#6B5A40" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <circle cx="150" cy="70" r="3" fill="#333" />
-      <path d="M152 98 Q158 82 162 76" stroke="#6B5A40" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <circle cx="162" cy="74" r="3" fill="#333" />
       {/* Lower tentacles */}
       <path d="M150 108 Q156 112 158 110" stroke="#6B5A40" strokeWidth="1.5" fill="none" strokeLinecap="round" />
       <path d="M148 110 Q152 116 150 118" stroke="#6B5A40" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      {/* Eye stalks as antennae */}
+      <g className="pest-antenna-l">
+        <path d="M145 98 Q148 80 150 72" stroke="#6B5A40" strokeWidth="2" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M152 98 Q158 82 162 76" stroke="#6B5A40" strokeWidth="2" fill="none" strokeLinecap="round" />
+      </g>
     </svg>
   );
 }
@@ -2948,7 +2981,9 @@ function KatatsumuriSvg() {
         </radialGradient>
       </defs>
       {/* Body */}
-      <path d="M40 150 Q40 135 60 128 Q90 118 130 125 Q155 130 155 145 Q155 158 130 162 Q90 168 55 162 Q40 158 40 150Z" fill="#8B7B60" />
+      <g className="pest-body">
+        <path d="M40 150 Q40 135 60 128 Q90 118 130 125 Q155 130 155 145 Q155 158 130 162 Q90 168 55 162 Q40 158 40 150Z" fill="#8B7B60" />
+      </g>
       {/* Shell */}
       <circle cx="105" cy="95" r="40" fill="url(#kata-shell)" />
       <path d="M105 55 Q80 70 75 95 Q72 115 90 130" stroke="#7A6335" strokeWidth="2" fill="none" />
@@ -2960,12 +2995,16 @@ function KatatsumuriSvg() {
       {/* Head */}
       <ellipse cx="50" cy="138" rx="14" ry="12" fill="#7A6B50" />
       {/* Eye stalks */}
-      <path d="M44 132 Q38 112 36 102" stroke="#7A6B50" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-      <circle cx="36" cy="100" r="3.5" fill="#333" />
-      <circle cx="35" cy="99" r="1.5" fill="#666" />
-      <path d="M52 130 Q52 114 54 106" stroke="#7A6B50" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-      <circle cx="54" cy="104" r="3.5" fill="#333" />
-      <circle cx="53" cy="103" r="1.5" fill="#666" />
+      <g className="pest-antenna-l">
+        <path d="M44 132 Q38 112 36 102" stroke="#7A6B50" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+        <circle cx="36" cy="100" r="3.5" fill="#333" />
+        <circle cx="35" cy="99" r="1.5" fill="#666" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M52 130 Q52 114 54 106" stroke="#7A6B50" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+        <circle cx="54" cy="104" r="3.5" fill="#333" />
+        <circle cx="53" cy="103" r="1.5" fill="#666" />
+      </g>
     </svg>
   );
 }
@@ -2980,6 +3019,7 @@ function KemushiSvg() {
         </radialGradient>
       </defs>
       {/* Body segments with hair tufts */}
+      <g className="pest-body">
       {[35,55,75,95,115,135,155].map((y,i) => (
         <g key={i}>
           <ellipse cx="100" cy={y} rx="20" ry="11" fill="url(#kemushi-seg)" />
@@ -2988,11 +3028,19 @@ function KemushiSvg() {
           <line x1="95" y1={y-9} x2="92" y2={y-20} stroke="#CCC0A0" strokeWidth="1" strokeLinecap="round" />
           <line x1="105" y1={y-9} x2="108" y2={y-20} stroke="#CCC0A0" strokeWidth="1" strokeLinecap="round" />
           <line x1="115" y1={y-8} x2={120+i} y2={y-18} stroke="#CCC0A0" strokeWidth="1" strokeLinecap="round" />
-          {/* Small prolegs */}
-          <ellipse cx="82" cy={y+6} rx="4" ry="3" fill="#C4B880" />
-          <ellipse cx="118" cy={y+6} rx="4" ry="3" fill="#C4B880" />
         </g>
       ))}
+      </g>
+      <g className="pest-leg-l">
+      {[35,55,75,95,115,135,155].map((y,i) => (
+          <ellipse key={i} cx="82" cy={y+6} rx="4" ry="3" fill="#C4B880" />
+      ))}
+      </g>
+      <g className="pest-leg-r">
+      {[35,55,75,95,115,135,155].map((y,i) => (
+          <ellipse key={i} cx="118" cy={y+6} rx="4" ry="3" fill="#C4B880" />
+      ))}
+      </g>
       {/* Head */}
       <circle cx="100" cy="22" r="10" fill="#C4B880" />
       <circle cx="96" cy="20" r="2.5" fill="#333" />
@@ -3092,12 +3140,18 @@ function KusakagerouSvg() {
       <path d="M35 88 Q60 82 85 88" stroke="#99CC99" strokeWidth="0.5" fill="none" />
       <path d="M115 88 Q140 82 165 88" stroke="#99CC99" strokeWidth="0.5" fill="none" />
       {/* Legs */}
-      <path d="M90 115 Q70 130 55 145" stroke="#7BAA55" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M110 115 Q130 130 145 145" stroke="#7BAA55" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M88 108 Q65 112 48 118" stroke="#7BAA55" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M112 108 Q135 112 152 118" stroke="#7BAA55" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-leg-l">
+        <path d="M90 115 Q70 130 55 145" stroke="#7BAA55" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M88 108 Q65 112 48 118" stroke="#7BAA55" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M110 115 Q130 130 145 145" stroke="#7BAA55" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M112 108 Q135 112 152 118" stroke="#7BAA55" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Body - slender green */}
-      <ellipse cx="100" cy="115" rx="10" ry="20" fill="#7BAA55" />
+      <g className="pest-body">
+        <ellipse cx="100" cy="115" rx="10" ry="20" fill="#7BAA55" />
+      </g>
       {/* Thorax */}
       <ellipse cx="100" cy="90" rx="8" ry="10" fill="#8BBB66" />
       {/* Head */}
@@ -3108,8 +3162,12 @@ function KusakagerouSvg() {
       <circle cx="94" cy="70" r="2" fill="#222" />
       <circle cx="106" cy="70" r="2" fill="#222" />
       {/* Long antennae */}
-      <path d="M94 64 Q80 35 72 20" stroke="#8BBB66" strokeWidth="1" fill="none" strokeLinecap="round" />
-      <path d="M106 64 Q120 35 128 20" stroke="#8BBB66" strokeWidth="1" fill="none" strokeLinecap="round" />
+      <g className="pest-antenna-l">
+        <path d="M94 64 Q80 35 72 20" stroke="#8BBB66" strokeWidth="1" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M106 64 Q120 35 128 20" stroke="#8BBB66" strokeWidth="1" fill="none" strokeLinecap="round" />
+      </g>
     </svg>
   );
 }
@@ -3172,15 +3230,21 @@ function TonboSvg() {
       <ellipse cx="62" cy="85" rx="38" ry="9" fill="#E8E8FF33" stroke="#AAA" strokeWidth="0.5" transform="rotate(-3 62 85)" />
       <ellipse cx="138" cy="85" rx="38" ry="9" fill="#E8E8FF33" stroke="#AAA" strokeWidth="0.5" transform="rotate(3 138 85)" />
       {/* Legs */}
-      <path d="M92 85 Q78 95 68 100" stroke="#456" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M108 85 Q122 95 132 100" stroke="#456" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-leg-l">
+        <path d="M92 85 Q78 95 68 100" stroke="#456" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M108 85 Q122 95 132 100" stroke="#456" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Long abdomen */}
-      <rect x="96" y="80" rx="4" width="8" height="95" fill="#4A7090" />
-      <line x1="100" y1="90" x2="100" y2="170" stroke="#3A6080" strokeWidth="0.5" />
-      {/* Abdomen segments */}
-      {[90,100,110,120,130,140,150,160].map((y,i) => (
-        <line key={i} x1="96" y1={y} x2="104" y2={y} stroke="#3A6080" strokeWidth="0.5" />
-      ))}
+      <g className="pest-body">
+        <rect x="96" y="80" rx="4" width="8" height="95" fill="#4A7090" />
+        <line x1="100" y1="90" x2="100" y2="170" stroke="#3A6080" strokeWidth="0.5" />
+        {/* Abdomen segments */}
+        {[90,100,110,120,130,140,150,160].map((y,i) => (
+          <line key={i} x1="96" y1={y} x2="104" y2={y} stroke="#3A6080" strokeWidth="0.5" />
+        ))}
+      </g>
       {/* Thorax */}
       <ellipse cx="100" cy="75" rx="12" ry="10" fill="#4A7090" />
       {/* Large compound eyes */}
@@ -3347,14 +3411,20 @@ function AmigasabachiSvg() {
       <ellipse cx="70" cy="100" rx="25" ry="10" fill="#D4A84044" transform="rotate(-10 70 100)" />
       <ellipse cx="130" cy="100" rx="25" ry="10" fill="#D4A84044" transform="rotate(10 130 100)" />
       {/* Legs */}
-      <path d="M85 115 Q65 128 50 140" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M115 115 Q135 128 150 140" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M88 105 Q68 105 50 102" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M112 105 Q132 105 150 102" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-leg-l">
+        <path d="M85 115 Q65 128 50 140" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M88 105 Q68 105 50 102" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M115 115 Q135 128 150 140" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M112 105 Q132 105 150 102" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Abdomen - fusiform */}
-      <ellipse cx="100" cy="135" rx="14" ry="24" fill="#AA8833" />
-      <path d="M88 128 Q100 124 112 128" stroke="#886622" strokeWidth="1.5" fill="none" />
-      <path d="M87 138 Q100 134 113 138" stroke="#886622" strokeWidth="1.5" fill="none" />
+      <g className="pest-body">
+        <ellipse cx="100" cy="135" rx="14" ry="24" fill="#AA8833" />
+        <path d="M88 128 Q100 124 112 128" stroke="#886622" strokeWidth="1.5" fill="none" />
+        <path d="M87 138 Q100 134 113 138" stroke="#886622" strokeWidth="1.5" fill="none" />
+      </g>
       {/* Thin waist (petiole) */}
       <rect x="97" y="108" width="6" height="12" rx="3" fill="#996B22" />
       {/* Thorax */}
@@ -3364,8 +3434,12 @@ function AmigasabachiSvg() {
       <circle cx="95" cy="76" r="2.5" fill="#222" />
       <circle cx="105" cy="76" r="2.5" fill="#222" />
       {/* Antennae */}
-      <path d="M94 70 Q84 55 80 45" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M106 70 Q116 55 120 45" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-antenna-l">
+        <path d="M94 70 Q84 55 80 45" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M106 70 Q116 55 120 45" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
     </svg>
   );
 }
@@ -3430,15 +3504,21 @@ function HamushiSvg() {
         </radialGradient>
       </defs>
       {/* Legs */}
-      <path d="M72 108 Q52 98 35 90" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M70 118 Q48 116 32 112" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M74 132 Q56 142 42 150" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M128 108 Q148 98 165 90" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M130 118 Q152 116 168 112" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M126 132 Q144 142 158 150" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-leg-l">
+        <path d="M72 108 Q52 98 35 90" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M70 118 Q48 116 32 112" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M74 132 Q56 142 42 150" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M128 108 Q148 98 165 90" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M130 118 Q152 116 168 112" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M126 132 Q144 142 158 150" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Body - oval */}
-      <ellipse cx="100" cy="118" rx="32" ry="28" fill="url(#hamu-body)" />
-      <line x1="100" y1="90" x2="100" y2="146" stroke="#AA6618" strokeWidth="0.8" opacity="0.3" />
+      <g className="pest-body">
+        <ellipse cx="100" cy="118" rx="32" ry="28" fill="url(#hamu-body)" />
+        <line x1="100" y1="90" x2="100" y2="146" stroke="#AA6618" strokeWidth="0.8" opacity="0.3" />
+      </g>
       {/* Pronotum */}
       <ellipse cx="100" cy="86" rx="18" ry="10" fill="#CC8830" />
       {/* Head */}
@@ -3446,8 +3526,12 @@ function HamushiSvg() {
       <circle cx="94" cy="70" r="3" fill="#333" />
       <circle cx="106" cy="70" r="3" fill="#333" />
       {/* Antennae */}
-      <path d="M92 64 Q84 52 80 44" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M108 64 Q116 52 120 44" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-antenna-l">
+        <path d="M92 64 Q84 52 80 44" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M108 64 Q116 52 120 44" stroke="#8B6B20" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
     </svg>
   );
 }
@@ -3456,23 +3540,31 @@ function Noshimemadara2Svg() {
   return (
     <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Wings - moth shape */}
-      <g>
+      <g className="pest-leg-l">
         <path d="M100 90 Q55 70 35 80 Q25 90 40 105 Q60 115 100 110Z" fill="#A09080" />
-        <path d="M100 90 Q145 70 165 80 Q175 90 160 105 Q140 115 100 110Z" fill="#A09080" />
         {/* Wing pattern */}
         <path d="M50 88 Q75 82 100 90" stroke="#7A6A5A" strokeWidth="1" fill="none" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M100 90 Q145 70 165 80 Q175 90 160 105 Q140 115 100 110Z" fill="#A09080" />
         <path d="M150 88 Q125 82 100 90" stroke="#7A6A5A" strokeWidth="1" fill="none" />
       </g>
       {/* Body */}
-      <ellipse cx="100" cy="105" rx="6" ry="16" fill="#8A7A6A" />
+      <g className="pest-body">
+        <ellipse cx="100" cy="105" rx="6" ry="16" fill="#8A7A6A" />
+      </g>
       {/* Head */}
       <circle cx="100" cy="84" r="6" fill="#8A7A6A" />
       {/* Eyes */}
       <circle cx="97" cy="82" r="2" fill="#222" />
       <circle cx="103" cy="82" r="2" fill="#222" />
       {/* Feathery antennae */}
-      <path d="M96 78 Q82 60 76 48" stroke="#8A7A6A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M104 78 Q118 60 124 48" stroke="#8A7A6A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-antenna-l">
+        <path d="M96 78 Q82 60 76 48" stroke="#8A7A6A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M104 78 Q118 60 124 48" stroke="#8A7A6A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
     </svg>
   );
 }
@@ -3487,15 +3579,21 @@ function TobinebumiSvg() {
         </radialGradient>
       </defs>
       {/* Legs */}
-      <path d="M78 112 Q60 104 45 96" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M76 122 Q56 120 40 116" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M80 134 Q62 144 48 152" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M122 112 Q140 104 155 96" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M124 122 Q144 120 160 116" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M120 134 Q138 144 152 152" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-leg-l">
+        <path d="M78 112 Q60 104 45 96" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M76 122 Q56 120 40 116" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M80 134 Q62 144 48 152" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M122 112 Q140 104 155 96" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M124 122 Q144 120 160 116" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M120 134 Q138 144 152 152" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Round body */}
-      <ellipse cx="100" cy="120" rx="25" ry="24" fill="url(#tobi-beetle)" />
-      <line x1="100" y1="96" x2="100" y2="144" stroke="#5A2A10" strokeWidth="0.8" opacity="0.3" />
+      <g className="pest-body">
+        <ellipse cx="100" cy="120" rx="25" ry="24" fill="url(#tobi-beetle)" />
+        <line x1="100" y1="96" x2="100" y2="144" stroke="#5A2A10" strokeWidth="0.8" opacity="0.3" />
+      </g>
       {/* Pronotum */}
       <ellipse cx="100" cy="92" rx="18" ry="10" fill="#8B5028" />
       {/* Head - tucked under */}
@@ -3503,8 +3601,12 @@ function TobinebumiSvg() {
       <circle cx="96" cy="78" r="2" fill="#444" />
       <circle cx="104" cy="78" r="2" fill="#444" />
       {/* Antennae - serrate */}
-      <path d="M94 74 Q88 62 86 54" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M106 74 Q112 62 114 54" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-antenna-l">
+        <path d="M94 74 Q88 62 86 54" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M106 74 Q112 62 114 54" stroke="#6B3A18" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
     </svg>
   );
 }
@@ -3519,15 +3621,21 @@ function HiratakikuimushiSvg() {
         </linearGradient>
       </defs>
       {/* Legs */}
-      <path d="M78 90 Q58 82 42 75" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M76 108 Q54 104 38 100" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M78 130 Q58 140 42 150" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M122 90 Q142 82 158 75" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M124 108 Q146 104 162 100" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M122 130 Q142 140 158 150" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-leg-l">
+        <path d="M78 90 Q58 82 42 75" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M76 108 Q54 104 38 100" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M78 130 Q58 140 42 150" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M122 90 Q142 82 158 75" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M124 108 Q146 104 162 100" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M122 130 Q142 140 158 150" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Elongated flat body */}
-      <rect x="76" y="72" rx="10" width="48" height="85" fill="url(#hirata-body)" />
-      <line x1="100" y1="72" x2="100" y2="157" stroke="#2A1208" strokeWidth="0.8" opacity="0.4" />
+      <g className="pest-body">
+        <rect x="76" y="72" rx="10" width="48" height="85" fill="url(#hirata-body)" />
+        <line x1="100" y1="72" x2="100" y2="157" stroke="#2A1208" strokeWidth="0.8" opacity="0.4" />
+      </g>
       {/* Pronotum */}
       <rect x="80" y="65" rx="6" width="40" height="15" fill="#4A2A15" />
       {/* Head */}
@@ -3535,10 +3643,14 @@ function HiratakikuimushiSvg() {
       <circle cx="95" cy="56" r="2.5" fill="#555" />
       <circle cx="105" cy="56" r="2.5" fill="#555" />
       {/* Antennae - clubbed */}
-      <path d="M92 52 Q84 40 80 32" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <circle cx="79" cy="30" r="3" fill="#4A2A15" />
-      <path d="M108 52 Q116 40 120 32" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <circle cx="121" cy="30" r="3" fill="#4A2A15" />
+      <g className="pest-antenna-l">
+        <path d="M92 52 Q84 40 80 32" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <circle cx="79" cy="30" r="3" fill="#4A2A15" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M108 52 Q116 40 120 32" stroke="#3A2210" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <circle cx="121" cy="30" r="3" fill="#4A2A15" />
+      </g>
     </svg>
   );
 }
@@ -3553,16 +3665,22 @@ function KonadaniSvg() {
         </radialGradient>
       </defs>
       {/* Legs - 8 short legs */}
-      <path d="M78 95 Q60 82 48 72" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M75 105 Q55 98 40 92" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M75 118 Q55 125 40 132" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M78 128 Q60 140 48 150" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M122 95 Q140 82 152 72" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M125 105 Q145 98 160 92" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M125 118 Q145 125 160 132" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M122 128 Q140 140 152 150" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-leg-l">
+        <path d="M78 95 Q60 82 48 72" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M75 105 Q55 98 40 92" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M75 118 Q55 125 40 132" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M78 128 Q60 140 48 150" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M122 95 Q140 82 152 72" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M125 105 Q145 98 160 92" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M125 118 Q145 125 160 132" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M122 128 Q140 140 152 150" stroke="#C8C0B0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Round translucent body */}
-      <ellipse cx="100" cy="108" rx="28" ry="30" fill="url(#kona-body)" opacity="0.85" />
+      <g className="pest-body">
+        <ellipse cx="100" cy="108" rx="28" ry="30" fill="url(#kona-body)" opacity="0.85" />
+      </g>
       {/* Internal organs visible */}
       <ellipse cx="100" cy="105" rx="12" ry="14" fill="#E0D8C8" opacity="0.4" />
       {/* Mouthparts (gnathosoma) */}
@@ -3586,17 +3704,22 @@ function SuzumegaSvg() {
         </linearGradient>
       </defs>
       {/* Large swept-back wings */}
-      <path d="M100 85 Q50 60 20 50 Q15 65 25 85 Q50 105 100 108Z" fill="url(#suzume-wing)" />
-      <path d="M100 85 Q150 60 180 50 Q185 65 175 85 Q150 105 100 108Z" fill="url(#suzume-wing)" />
-      {/* Wing patterns */}
-      <path d="M40 65 Q70 78 100 90" stroke="#6B5B4B" strokeWidth="1" fill="none" opacity="0.5" />
-      <path d="M160 65 Q130 78 100 90" stroke="#6B5B4B" strokeWidth="1" fill="none" opacity="0.5" />
+      <g className="pest-leg-l">
+        <path d="M100 85 Q50 60 20 50 Q15 65 25 85 Q50 105 100 108Z" fill="url(#suzume-wing)" />
+        <path d="M40 65 Q70 78 100 90" stroke="#6B5B4B" strokeWidth="1" fill="none" opacity="0.5" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M100 85 Q150 60 180 50 Q185 65 175 85 Q150 105 100 108Z" fill="url(#suzume-wing)" />
+        <path d="M160 65 Q130 78 100 90" stroke="#6B5B4B" strokeWidth="1" fill="none" opacity="0.5" />
+      </g>
       {/* Robust body */}
-      <ellipse cx="100" cy="108" rx="12" ry="28" fill="#7B6B5B" />
-      {/* Abdomen stripes */}
-      <path d="M89 105 Q100 103 111 105" stroke="#5A4A3A" strokeWidth="1" fill="none" />
-      <path d="M89 115 Q100 113 111 115" stroke="#5A4A3A" strokeWidth="1" fill="none" />
-      <path d="M90 125 Q100 123 110 125" stroke="#5A4A3A" strokeWidth="1" fill="none" />
+      <g className="pest-body">
+        <ellipse cx="100" cy="108" rx="12" ry="28" fill="#7B6B5B" />
+        {/* Abdomen stripes */}
+        <path d="M89 105 Q100 103 111 105" stroke="#5A4A3A" strokeWidth="1" fill="none" />
+        <path d="M89 115 Q100 113 111 115" stroke="#5A4A3A" strokeWidth="1" fill="none" />
+        <path d="M90 125 Q100 123 110 125" stroke="#5A4A3A" strokeWidth="1" fill="none" />
+      </g>
       {/* Head */}
       <circle cx="100" cy="75" r="8" fill="#6B5B4B" />
       <circle cx="96" cy="73" r="2.5" fill="#222" />
@@ -3604,8 +3727,12 @@ function SuzumegaSvg() {
       {/* Long proboscis (curled) */}
       <path d="M100 80 Q95 90 98 85 Q96 92 100 88" stroke="#5A4A3A" strokeWidth="1" fill="none" strokeLinecap="round" />
       {/* Antennae */}
-      <path d="M95 68 Q86 55 82 45" stroke="#6B5B4B" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <path d="M105 68 Q114 55 118 45" stroke="#6B5B4B" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <g className="pest-antenna-l">
+        <path d="M95 68 Q86 55 82 45" stroke="#6B5B4B" strokeWidth="2" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M105 68 Q114 55 118 45" stroke="#6B5B4B" strokeWidth="2" fill="none" strokeLinecap="round" />
+      </g>
     </svg>
   );
 }
@@ -3623,14 +3750,20 @@ function ChikaekaSvg() {
       <ellipse cx="72" cy="100" rx="28" ry="10" fill="#D4D4DD22" stroke="#999" strokeWidth="0.3" transform="rotate(-10 72 100)" />
       <ellipse cx="128" cy="100" rx="28" ry="10" fill="#D4D4DD22" stroke="#999" strokeWidth="0.3" transform="rotate(10 128 100)" />
       {/* Legs */}
-      <path d="M90 115 Q68 130 50 148" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M110 115 Q132 130 150 148" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M88 100 Q62 95 42 88" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M112 100 Q138 95 158 88" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M90 125 Q72 145 58 168" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M110 125 Q128 145 142 168" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-leg-l">
+        <path d="M90 115 Q68 130 50 148" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M88 100 Q62 95 42 88" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M90 125 Q72 145 58 168" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M110 115 Q132 130 150 148" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M112 100 Q138 95 158 88" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M110 125 Q128 145 142 168" stroke="#4A3A2A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Abdomen */}
-      <ellipse cx="100" cy="120" rx="12" ry="22" fill="url(#chika-body)" />
+      <g className="pest-body">
+        <ellipse cx="100" cy="120" rx="12" ry="22" fill="url(#chika-body)" />
+      </g>
       {/* Thorax */}
       <ellipse cx="100" cy="92" rx="10" ry="10" fill="#5A4A3A" />
       {/* Head */}
@@ -3640,13 +3773,17 @@ function ChikaekaSvg() {
       {/* Proboscis */}
       <line x1="100" y1="80" x2="100" y2="96" stroke="#3A2A1A" strokeWidth="1.5" strokeLinecap="round" />
       {/* Feathery antennae */}
-      <path d="M94 68 Q82 52 76 42" stroke="#5A4A3A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M106 68 Q118 52 124 42" stroke="#5A4A3A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      {/* Antenna feathers */}
-      <line x1="84" y1="56" x2="78" y2="52" stroke="#5A4A3A" strokeWidth="0.5" />
-      <line x1="80" y1="50" x2="74" y2="46" stroke="#5A4A3A" strokeWidth="0.5" />
-      <line x1="116" y1="56" x2="122" y2="52" stroke="#5A4A3A" strokeWidth="0.5" />
-      <line x1="120" y1="50" x2="126" y2="46" stroke="#5A4A3A" strokeWidth="0.5" />
+      <g className="pest-antenna-l">
+        <path d="M94 68 Q82 52 76 42" stroke="#5A4A3A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        {/* Antenna feathers */}
+        <line x1="84" y1="56" x2="78" y2="52" stroke="#5A4A3A" strokeWidth="0.5" />
+        <line x1="80" y1="50" x2="74" y2="46" stroke="#5A4A3A" strokeWidth="0.5" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M106 68 Q118 52 124 42" stroke="#5A4A3A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <line x1="116" y1="56" x2="122" y2="52" stroke="#5A4A3A" strokeWidth="0.5" />
+        <line x1="120" y1="50" x2="126" y2="46" stroke="#5A4A3A" strokeWidth="0.5" />
+      </g>
     </svg>
   );
 }
@@ -3664,12 +3801,18 @@ function KumabachiSvg() {
       <ellipse cx="65" cy="95" rx="28" ry="12" fill="#D4D4FF33" stroke="#AAA" strokeWidth="0.5" transform="rotate(-8 65 95)" />
       <ellipse cx="135" cy="95" rx="28" ry="12" fill="#D4D4FF33" stroke="#AAA" strokeWidth="0.5" transform="rotate(8 135 95)" />
       {/* Legs */}
-      <path d="M82 118 Q62 132 48 145" stroke="#222" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <path d="M118 118 Q138 132 152 145" stroke="#222" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <path d="M85 105 Q62 102 45 98" stroke="#222" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <path d="M115 105 Q138 102 155 98" stroke="#222" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <g className="pest-leg-l">
+        <path d="M82 118 Q62 132 48 145" stroke="#222" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <path d="M85 105 Q62 102 45 98" stroke="#222" strokeWidth="2" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M118 118 Q138 132 152 145" stroke="#222" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <path d="M115 105 Q138 102 155 98" stroke="#222" strokeWidth="2" fill="none" strokeLinecap="round" />
+      </g>
       {/* Large round abdomen - black */}
-      <ellipse cx="100" cy="130" rx="26" ry="24" fill="#1A1A1A" />
+      <g className="pest-body">
+        <ellipse cx="100" cy="130" rx="26" ry="24" fill="#1A1A1A" />
+      </g>
       {/* Fuzzy thorax - yellow */}
       <ellipse cx="100" cy="96" rx="22" ry="18" fill="url(#kuma-thorax)" />
       {/* Fur texture */}
@@ -3679,8 +3822,12 @@ function KumabachiSvg() {
       <circle cx="94" cy="70" r="3" fill="#444" />
       <circle cx="106" cy="70" r="3" fill="#444" />
       {/* Antennae */}
-      <path d="M94 62 Q86 48 84 40" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M106 62 Q114 48 116 40" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-antenna-l">
+        <path d="M94 62 Q86 48 84 40" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M106 62 Q114 48 116 40" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
     </svg>
   );
 }
@@ -3738,17 +3885,23 @@ function KogataSuzuSvg() {
       <ellipse cx="68" cy="98" rx="26" ry="11" fill="#D4A84044" transform="rotate(-12 68 98)" />
       <ellipse cx="132" cy="98" rx="26" ry="11" fill="#D4A84044" transform="rotate(12 132 98)" />
       {/* Legs */}
-      <path d="M84 112 Q62 122 48 132" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M116 112 Q138 122 152 132" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M82 125 Q60 138 45 150" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M118 125 Q140 138 155 150" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M86 100 Q66 96 50 90" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M114 100 Q134 96 150 90" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-leg-l">
+        <path d="M84 112 Q62 122 48 132" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M82 125 Q60 138 45 150" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M86 100 Q66 96 50 90" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-leg-r">
+        <path d="M116 112 Q138 122 152 132" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M118 125 Q140 138 155 150" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M114 100 Q134 96 150 90" stroke="#AA7700" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Abdomen with stripes */}
-      <ellipse cx="100" cy="128" rx="20" ry="26" fill="url(#kogata-body)" />
-      <path d="M82 118 Q100 114 118 118" stroke="#222" strokeWidth="2.5" fill="none" />
-      <path d="M80 128 Q100 124 120 128" stroke="#222" strokeWidth="2.5" fill="none" />
-      <path d="M82 138 Q100 134 118 138" stroke="#222" strokeWidth="2.5" fill="none" />
+      <g className="pest-body">
+        <ellipse cx="100" cy="128" rx="20" ry="26" fill="url(#kogata-body)" />
+        <path d="M82 118 Q100 114 118 118" stroke="#222" strokeWidth="2.5" fill="none" />
+        <path d="M80 128 Q100 124 120 128" stroke="#222" strokeWidth="2.5" fill="none" />
+        <path d="M82 138 Q100 134 118 138" stroke="#222" strokeWidth="2.5" fill="none" />
+      </g>
       {/* Thorax */}
       <ellipse cx="100" cy="95" rx="16" ry="12" fill="#222" />
       {/* Head */}
@@ -3756,8 +3909,12 @@ function KogataSuzuSvg() {
       <circle cx="94" cy="72" r="3" fill="#222" />
       <circle cx="106" cy="72" r="3" fill="#222" />
       {/* Antennae */}
-      <path d="M94 64 Q84 48 80 40" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      <path d="M106 64 Q116 48 120 40" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <g className="pest-antenna-l">
+        <path d="M94 64 Q84 48 80 40" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
+      <g className="pest-antenna-r">
+        <path d="M106 64 Q116 48 120 40" stroke="#222" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      </g>
       {/* Stinger */}
       <path d="M100 152 L100 162" stroke="#222" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
