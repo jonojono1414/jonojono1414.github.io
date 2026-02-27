@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import { pests, categories } from "./data/pests";
 import PestCard from "./components/PestCard";
+import HeroBackground from "./components/HeroBackground";
+import { Bug, SearchX, Info, X } from "lucide-react";
 
 export default function Home() {
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -49,31 +51,27 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-green-50">
       {/* Hero */}
       <header className="relative overflow-hidden bg-gradient-to-br from-emerald-600 via-teal-500 to-cyan-500 px-4 py-14 text-center text-white shadow-xl">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute left-10 top-5 text-6xl">🪲</div>
-          <div className="absolute right-10 top-8 text-5xl">🦟</div>
-          <div className="absolute bottom-5 left-1/4 text-4xl">🐝</div>
-          <div className="absolute bottom-3 right-1/4 text-5xl">🦗</div>
-          <div className="absolute left-1/3 top-2 text-3xl">🕷️</div>
-          <div className="absolute right-1/3 bottom-6 text-4xl">🐜</div>
-        </div>
-        <h1 className="relative text-4xl font-extrabold tracking-tight drop-shadow-md md:text-5xl">
-          🐝 害虫図鑑
+        <HeroBackground />
+        
+        <h1 className="relative z-10 flex items-center justify-center gap-3 text-4xl font-extrabold tracking-tight drop-shadow-md md:text-5xl">
+          <Bug className="h-10 w-10 md:h-12 md:w-12 text-emerald-200" />
+          害虫図鑑
         </h1>
-        <p className="relative mt-3 text-lg font-medium text-emerald-100">
+        <p className="relative z-10 mt-3 text-lg font-medium text-emerald-100">
           あまり不快にならない憎めない害虫図鑑
         </p>
 
         {/* About trigger */}
         <button
           onClick={() => setAboutOpen(true)}
-          className="relative mt-4 inline-flex items-center gap-1.5 text-sm text-white/70 transition-all hover:text-white"
+          className="relative z-10 mt-4 inline-flex items-center gap-1.5 text-sm text-white/70 transition-all hover:text-white"
         >
+          <Info className="h-4 w-4" />
           <span className="border-b border-dashed border-white/40">害虫図鑑について</span>
         </button>
 
         {/* Search */}
-        <div className="relative mx-auto mt-6 max-w-md">
+        <div className="relative z-10 mx-auto mt-6 max-w-md">
           <input
             type="text"
             value={search}
@@ -86,7 +84,7 @@ export default function Home() {
               onClick={() => setSearch("")}
               className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/20 px-2 py-0.5 text-xs text-white/80 hover:bg-white/30"
             >
-              ✕
+              <X className="h-4 w-4" />
             </button>
           )}
         </div>
@@ -151,8 +149,8 @@ export default function Home() {
         </div>
 
         {filtered.length === 0 && (
-          <div className="py-20 text-center">
-            <p className="text-4xl">🔍</p>
+          <div className="py-20 text-center flex flex-col items-center">
+            <SearchX className="h-16 w-16 text-gray-400 mb-4" />
             <p className="mt-4 text-gray-400">該当する害虫が見つかりません</p>
             <button
               onClick={() => {

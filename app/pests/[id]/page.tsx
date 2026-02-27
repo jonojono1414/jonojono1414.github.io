@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { pests } from "../../data/pests";
 import PestSvg from "../../components/PestSvg";
 import RadarChart from "../../components/RadarChart";
+import { Bug, BarChart3, FileText, Lightbulb, ShieldAlert, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -44,11 +45,13 @@ export default async function PestDetail({ params }: Props) {
         <div className="mx-auto flex max-w-4xl items-center gap-4">
           <Link
             href="/"
-            className="rounded-full bg-white/20 px-4 py-2 text-sm font-bold backdrop-blur transition hover:bg-white/30"
+            className="flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-sm font-bold backdrop-blur transition hover:bg-white/30"
           >
-            ← 一覧に戻る
+            <ArrowLeft className="h-4 w-4" /> 一覧に戻る
           </Link>
-          <h1 className="text-2xl font-extrabold">🔍 害虫図鑑</h1>
+          <h1 className="flex items-center gap-2 text-2xl font-extrabold">
+            <Bug className="h-6 w-6" /> 害虫図鑑
+          </h1>
         </div>
       </header>
 
@@ -86,7 +89,9 @@ export default async function PestDetail({ params }: Props) {
 
         {/* Danger Radar Chart */}
         <section className="mt-8 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 p-6 shadow-md md:p-8">
-          <h3 className="mb-4 text-xl font-extrabold text-gray-800">📊 危険度詳細</h3>
+          <h3 className="mb-4 flex items-center gap-2 text-xl font-extrabold text-gray-800">
+            <BarChart3 className="h-6 w-6 text-emerald-500" /> 危険度詳細
+          </h3>
           <div className="flex justify-center">
             <RadarChart data={pest.dangerDetail} />
           </div>
@@ -94,13 +99,17 @@ export default async function PestDetail({ params }: Props) {
 
         {/* Description */}
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-md md:p-8">
-          <h3 className="mb-4 text-xl font-extrabold text-gray-800">📝 特徴</h3>
+          <h3 className="mb-4 flex items-center gap-2 text-xl font-extrabold text-gray-800">
+            <FileText className="h-6 w-6 text-blue-500" /> 特徴
+          </h3>
           <p className="leading-relaxed text-gray-700">{pest.description}</p>
         </section>
 
         {/* Trivia */}
         <section className="mt-8 rounded-2xl bg-gradient-to-r from-yellow-50 to-orange-50 p-6 shadow-md md:p-8">
-          <h3 className="mb-4 text-xl font-extrabold text-gray-800">💡 豆知識</h3>
+          <h3 className="mb-4 flex items-center gap-2 text-xl font-extrabold text-gray-800">
+            <Lightbulb className="h-6 w-6 text-amber-500" /> 豆知識
+          </h3>
           <div className="grid gap-3 sm:grid-cols-2">
             {pest.trivia.map((t, i) => (
               <div
@@ -108,7 +117,6 @@ export default async function PestDetail({ params }: Props) {
                 className="relative rounded-xl bg-white p-4 shadow-sm before:absolute before:-top-2 before:left-4 before:h-4 before:w-4 before:rotate-45 before:bg-white"
               >
                 <p className="text-sm leading-relaxed text-gray-700">
-                  <span className="mr-1 text-orange-400">🔸</span>
                   {t}
                 </p>
               </div>
@@ -118,7 +126,9 @@ export default async function PestDetail({ params }: Props) {
 
         {/* Prevention */}
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-md md:p-8">
-          <h3 className="mb-4 text-xl font-extrabold text-gray-800">🛡️ 対策</h3>
+          <h3 className="mb-4 flex items-center gap-2 text-xl font-extrabold text-gray-800">
+            <ShieldAlert className="h-6 w-6 text-rose-500" /> 対策
+          </h3>
           <ul className="space-y-2">
             {pest.prevention.map((p, i) => (
               <li key={i} className="flex items-start gap-2 text-gray-700">
@@ -137,7 +147,7 @@ export default async function PestDetail({ params }: Props) {
             href={`/pests/${prevPest.id}`}
             className="group flex items-center gap-3 rounded-2xl bg-white p-4 shadow-md transition hover:-translate-y-0.5 hover:shadow-lg"
           >
-            <span className="text-2xl text-gray-300 transition group-hover:text-emerald-500">←</span>
+            <ChevronLeft className="h-6 w-6 text-gray-400 transition group-hover:text-emerald-500" />
             <div className="min-w-0">
               <p className="text-xs text-gray-400">前の害虫</p>
               <p className="truncate font-bold text-gray-700 group-hover:text-emerald-600 transition">{prevPest.name}</p>
@@ -151,7 +161,7 @@ export default async function PestDetail({ params }: Props) {
               <p className="text-xs text-gray-400">次の害虫</p>
               <p className="truncate font-bold text-gray-700 group-hover:text-emerald-600 transition">{nextPest.name}</p>
             </div>
-            <span className="text-2xl text-gray-300 transition group-hover:text-emerald-500">→</span>
+            <ChevronRight className="h-6 w-6 text-gray-400 transition group-hover:text-emerald-500" />
           </Link>
         </nav>
 
@@ -159,9 +169,9 @@ export default async function PestDetail({ params }: Props) {
         <div className="mt-8 text-center">
           <Link
             href="/"
-            className="inline-block rounded-full bg-emerald-500 px-8 py-3 text-sm font-bold text-white shadow-md transition hover:bg-emerald-600 hover:shadow-lg active:scale-95"
+            className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-8 py-3 text-sm font-bold text-white shadow-md transition hover:bg-emerald-600 hover:shadow-lg active:scale-95"
           >
-            ← 一覧に戻る
+            <ArrowLeft className="h-4 w-4" /> 一覧に戻る
           </Link>
         </div>
       </main>
